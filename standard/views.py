@@ -29,13 +29,26 @@ def cart(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+        except:
+            cart = {}
+        print('Cart:', cart)
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
         cartItems = order['get_cart_items']
+        
+        for itemCart in cart:
+            cartItems += cart[itemCart]['quantity']
+            
+            product = Product.objects.get(id=1)
+            total = (product.price * cart[itemCart]['quantity'])
+            
+            order['get_cart_total'] += total
+            order['get_cart_items'] += cart[itemCart]['quantity']
     
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'standard/cart.html', context)
-
 
 def checkout(request):
     if request.user.is_authenticated:
@@ -77,7 +90,6 @@ def updateItem(request):
         orderItem.delete()
     
     return JsonResponse('Item was added', safe=False)
-    
 
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
