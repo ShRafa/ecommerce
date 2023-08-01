@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from decimal import Decimal
+
 import json
 import datetime
+
 
 from .models import *
 from . utils import cookieCart, cartData, guestOrder
@@ -59,9 +62,9 @@ def updateItem(request):
     
     return JsonResponse('Item was added', safe=False)
 
-# from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 
-# @csrf_exempt
+@csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
@@ -73,7 +76,7 @@ def processOrder(request):
     else:
         customer, order = guestOrder(request, data)
       
-    total = float(data['form']['total'])
+    total = Decimal(data['form']['total'])
     order.transaction_id = transaction_id
         
     if total == order.get_cart_total:
@@ -88,6 +91,6 @@ def processOrder(request):
             city=data['shipping']['city'],
             state=data['shipping']['state'],
             zipcode=data['shipping']['zipcode'],
-    )
+        )
       
     return JsonResponse('Payment complete', safe=False)
