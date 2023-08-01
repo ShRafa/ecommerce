@@ -1,16 +1,18 @@
 from django.contrib import admin
 
+from .models import *
+
 # Register your models here.
 
-from .models import *
 
 admin.site.register(Customer)
 admin.site.register(Product)
 admin.site.register(OrderItem)
 admin.site.register(ShippingAddress)
 
+
 @admin.register(Order)
-class order_admin (admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin):
     list_display = [
         "customer",
         "transaction_id",
@@ -25,4 +27,3 @@ class order_admin (admin.ModelAdmin):
         "customer__name",
         "customer__email",
     ]
-    
