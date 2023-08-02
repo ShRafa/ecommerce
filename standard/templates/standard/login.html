@@ -1,0 +1,24 @@
+{% extends 'standard/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="center pa-2 d-flex justify-content-center">
+        <form style="width: 400px;" method="post" novaldiate class="card">{% csrf_token %}
+
+            <h3 class="text-center">Efetuar Login</h2>
+            {% for field in form %}
+                {{ field.label_tag }} 
+                {{ field }}
+                {% if field.errors %}
+                    <small class="error text-danger">{{ field.errors|striptags  }}</small> 
+                {% endif %}
+            {% endfor %}
+
+            <input type="submit" value="Enviar" class="my-4 btn btn-primary full-width">
+            <hr>
+            <p class="text-center">Não tem uma conta? <a href="{% url 'signin'%}">Crie agora</a></p>
+
+        </form>
+    </div>
+{% endblock %}

@@ -1,9 +1,16 @@
 import datetime
 import json
 from decimal import Decimal
+from typing import Any, Dict
 
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView, LogoutView
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 
 from .models import *
 from .utils import cartData, cookieCart, guestOrder
@@ -98,3 +105,39 @@ def processOrder(request):
         )
 
     return JsonResponse("Payment complete", safe=False)
+
+
+class SigninView(CreateView):
+    template_name = "standard/signin.html"
+    form_class = UserCreationForm
+    success_url = reverse_lazy("store")
+
+    def form_valid(self, form):
+        user = form.save()
+        if user:
+            Customer.objects.create(user=user, name=user.username, email='')
+            login(self.request, user)
+
+        return super(SigninView, self).form_valid(form)
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect("store")
+        return super().get(request, *args, **kwargs)
+
+
+class UserLogoutView(LogoutView):
+    template_name = "standard/logout.html"
+
+
+class UserLoginView(LoginView):
+    template_name = "standard/login.html"
+    redirect_authenticated_user = True
+    request = None
+
+    def get_success_url(self):
+        return reverse_lazy("store")
+    
+    # def get_context_data(self, **kwargs):
+    #     context = cartData(self.request)
+    #     return context

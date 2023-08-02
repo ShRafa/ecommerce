@@ -29,6 +29,11 @@ class Product(models.Model):
         except:
             url = ""
         return url
+        
+    @property
+    def brazilianCurrency(self):
+        rounded = round(self.price, 2)
+        return str(rounded).replace('.',',')
 
 
 class Order(models.Model):
