@@ -1,0 +1,12 @@
+{% extends 'standard/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h1>Lista de Ordens</h1>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order.date_orderd }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

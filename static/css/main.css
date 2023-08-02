@@ -6,6 +6,12 @@ h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
 }
 
+h4 {
+	margin: 5px;
+	justify-content: center;
+	text-align: center;
+}
+
 .box-element{
 	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
 	background-color: #fff;
@@ -23,6 +29,11 @@ h1,h2,h3,h4,h5,h6{
 
 .product{
 	border-radius: 0 0 4px 4px;
+}
+
+.align-text{
+	justify-content: center;
+	text-align: center;
 }
 
 .bg-dark{

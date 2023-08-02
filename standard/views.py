@@ -107,6 +107,13 @@ def processOrder(request):
     return JsonResponse("Payment complete", safe=False)
 
 
+def historic(request):
+    if request.user.is_authenticated:
+        context = Order.objects.all()
+        return render(request, "standard/historic.html", context)
+    else:
+        return redirect("login")
+    
 class SigninView(CreateView):
     template_name = "standard/signin.html"
     form_class = UserCreationForm
