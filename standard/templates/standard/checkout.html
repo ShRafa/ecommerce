@@ -42,8 +42,7 @@
 			<br>
 			<div class="box-element hidden" id="payment-info">
 				<small>Opções de Pagamento</small>
-				<div id="paypal-button-container"></div>
-				{% comment %} <button id="make-payment">Efetuar Pagamento</button> {% endcomment %}
+				<button id="make-payment">Efetuar Pagamento</button>
 			</div>
 			
 
@@ -72,42 +71,9 @@
 	</div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&disable-funding=credit"></script>
-
-<script>
-	var total = '{{order.get_cart_total}}'
-
-	// Render the PayPal button into #paypal-button-container
-	paypal.Buttons({
-
-		style:{
-			color:'blue',
-			shape:'rect',
-		},
-
-		// Call your server to set up the transaction
-		createOrder: function(data, actions) {
-			return actions.order.create({
-				purchase_units: [{
-					amount: {
-						value: parseFloat(total).toFixed(2)
-					}
-				}]
-			})
-		},
-
-		// Call your server to finalize the transaction
-		onApprove: function(data, actions) {
-			return actions.order.capture().then(function(details) {
-				submitFormData()
-			})
-		}
-
-	}).render('#paypal-button-container');
-</script>
-
 <script type="text/javascript">
 	var shipping = '{{order.shipping}}'
+	var total = '{{order.get_cart_total}}'
 
 	if(shipping == 'False'){
 		document.getElementById('shipping-info').innerHTML = ''
@@ -134,9 +100,9 @@
 		document.getElementById('payment-info').classList.remove('hidden')
 		})
 
-	{% comment %} document.getElementById('make-payment').addEventListener('click', function(e){
+	document.getElementById('make-payment').addEventListener('click', function(e){
 		submitFormData()
-	}) {% endcomment %}
+	})
 
 	function submitFormData(){
 		console.log('Payment button clicked')
