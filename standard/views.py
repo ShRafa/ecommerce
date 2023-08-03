@@ -109,8 +109,9 @@ def processOrder(request):
 
 def historic(request):
     if request.user.is_authenticated:
-        context = Order.objects.all()
-        return render(request, "standard/historic.html", context)
+        # orders = Order.objects.filter(customer=request.user)
+        orders = Order.objects.all()
+        return render(request, "standard/historic.html", {'orders':orders})
     else:
         return redirect("login")
     
