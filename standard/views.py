@@ -7,7 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.forms.models import BaseModelForm
-from django.http import HttpResponse, JsonResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
@@ -85,9 +85,12 @@ def processOrder(request):
         order, _ = Order.objects.get_or_create(customer=customer, complete=False)
 
     else:
-        customer, order = guestOrder(request, data)
+        try:
+            customer, order = guestOrder(request, data)
+        except:
+            raise ValueError("Senhas não coincidem")
 
-    total = Decimal(data["form"]["total"])
+    total = Decimal(data["form"]["total"].replace(",", "."))
     order.transaction_id = transaction_id
 
     if total == order.get_cart_total:
@@ -104,16 +107,21 @@ def processOrder(request):
             zipcode=data["shipping"]["zipcode"],
         )
 
+    login(request, customer.user)
+
     return JsonResponse("Payment complete", safe=False)
 
 
 def historic(request):
     if request.user.is_authenticated:
-        orders = Order.objects.filter(customer=request.user.customer)
-        return render(request, "standard/historic.html", {'orders':orders})
+        # orders = Order.objects.filter(customer=request.user.customer).order_by('-id', 'complete')
+        # orders = Order.objects.filter(customer__user=request.user).order_by('-id', 'complete')
+        orders = request.user.customer.order_set.order_by("-id", "complete")
+        return render(request, "standard/historic.html", {"orders": orders})
     else:
         return redirect("login")
-    
+
+
 class SigninView(CreateView):
     template_name = "standard/signin.html"
     form_class = UserCreationForm
@@ -122,7 +130,7 @@ class SigninView(CreateView):
     def form_valid(self, form):
         user = form.save()
         if user:
-            Customer.objects.create(user=user, name=user.username, email='')
+            Customer.objects.create(user=user, name=user.username, email="")
             login(self.request, user)
 
         return super(SigninView, self).form_valid(form)
@@ -144,7 +152,7 @@ class UserLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy("store")
-    
+
     # def get_context_data(self, **kwargs):
     #     context = cartData(self.request)
     #     return context

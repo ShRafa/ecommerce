@@ -1,7 +1,8 @@
 import json
 
-from .models import *
 from django.contrib.auth.models import User
+
+from .models import *
 
 
 def cookieCart(request):
@@ -66,19 +67,23 @@ def guestOrder(request, data):
     print("COOKIES:", request.COOKIES)
     name = data["form"]["name"]
     email = data["form"]["email"]
+    password = data["form"]["password"]
+    password_confirm = data["form"]["password_confirm"]
 
     cookieData = cookieCart(request)
     items = cookieData["items"]
-    
+
     if Customer.objects.filter(email=email).exists():
         customer = Customer.objects.get(email=email)
     else:
-        user = User.objects.create(username=name, email=email)
-        
-        customer = Customer.objects.create(
-            email=email, user=user
-        )
-        
+        password_match = password == password_confirm
+
+        if not password_match:
+            raise ValueError("Senhas não coincidem")
+
+        user = User.objects.create(username=name, email=email, password=password)
+        customer = Customer.objects.create(email=email, user=user)
+
     customer.name = name
     customer.save()
 

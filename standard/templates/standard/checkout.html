@@ -15,8 +15,21 @@
 						<div class="form-field">
 							<input required class="form-control" type="email" name="email" placeholder="E-mail..">
 						</div>
+						<div class="form-field">
+							<input 
+								required class="form-control" 
+								type="password" name="password" 
+								placeholder="Senha.."
+							>
+						</div>
+						<div class="form-field">
+							<input 
+								required class="form-control" 
+								type="password" name="password_confirm" 
+								placeholder="Confirmar senha.."
+							>
+						</div>
 					</div>
-					
 					<div id="shipping-info">
 						<hr>
 						<p>Info Envio:</p>
@@ -50,7 +63,7 @@
 		
 		<div class="col-lg-6">
 			<div class="box-element">
-				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Voltar ao Carrinho</a>
+				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">Voltar ao Carrinho</a>
 				<hr>
 				<h3>Resumo do Pedido</h3>
 				<hr>
@@ -111,6 +124,8 @@
 			'name':null,
 			'email':null,
 			'total':total,
+			'password':null,
+			'password_confirm':null,
 		}
 
 		var shippingInfo = {
@@ -130,6 +145,8 @@
 		if(user == 'AnonymousUser'){
 			userFormData.name = form.name.value
 			userFormData.email = form.email.value
+			userFormData.password = form.password.value
+			userFormData.password_confirm = form.password_confirm.value
 		}
 
 		var url = '/process_order/'
@@ -150,6 +167,10 @@
 			document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
 
 			window.location.href = "{% url 'store' %}"
+		})
+		.catch((error) => {
+			console.log(error)
+			alert("Senhas não coincidem")
 		})
 	}
 </script> 

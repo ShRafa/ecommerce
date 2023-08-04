@@ -8,8 +8,10 @@
         {% for order in orders %}
                 <div> Usuário: {{ order.customer }} </div>
                 <div> Data da Compra: {{ order.date_orderd }} </div>
-                <div> Código da Transação: {{ order.transaction_id }} </div>
+                <div> Código da Transação: 
+                    {{ order.transaction_id | default_if_none:'À pagar' }} 
+                </div>
+                <div> Valor Total R$: {{order.get_cart_total }}</div>
                 <hr>
         {% endfor %}
-        
 {% endblock content %}
