@@ -1,19 +1,22 @@
 import datetime
 import json
 from decimal import Decimal
-from typing import Any, Dict
 
-from django.contrib.auth import login
+from django import forms
+from django.contrib.auth import login, password_validation
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.contrib.auth.views import LoginView, LogoutView
-from django.forms.models import BaseModelForm
-from django.http import Http404, HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.edit import CreateView
 
 from .models import *
-from .utils import cartData, cookieCart, guestOrder
+from .utils import cartData, guestOrder
 
 
 def store(request):
@@ -72,9 +75,6 @@ def updateItem(request):
     return JsonResponse("Item was added", safe=False)
 
 
-from django.views.decorators.csrf import csrf_exempt
-
-
 @csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
@@ -114,24 +114,80 @@ def processOrder(request):
 
 def historic(request):
     if request.user.is_authenticated:
-        # orders = Order.objects.filter(customer=request.user.customer).order_by('-id', 'complete')
-        # orders = Order.objects.filter(customer__user=request.user).order_by('-id', 'complete')
         orders = request.user.customer.order_set.order_by("-id", "complete")
         return render(request, "standard/historic.html", {"orders": orders})
     else:
         return redirect("login")
 
 
+username_validator = UnicodeUsernameValidator()
+
+
+class SigninForm(UserCreationForm):
+    first_name = forms.CharField(
+        max_length=12,
+        min_length=4,
+        required=True,
+        help_text="Nome necessário",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+            }
+        ),
+    )
+    last_name = forms.CharField(
+        max_length=12,
+        min_length=4,
+        required=True,
+        help_text="Sobrenome necessário",
+        widget=(forms.TextInput(attrs={"class": "form-control"})),
+    )
+    email = forms.EmailField(
+        max_length=50,
+        help_text="E-mail necessário",
+        widget=(forms.TextInput(attrs={"class": "form-control"})),
+    )
+    password1 = forms.CharField(
+        label=_("Senha"),
+        widget=(forms.PasswordInput(attrs={"class": "form-control"})),
+        help_text=password_validation.password_validators_help_text_html(),
+    )
+    password2 = forms.CharField(
+        label=_("Confirmar senha"),
+        widget=forms.PasswordInput(attrs={"class": "form-control"}),
+        help_text=_("Senhas não coincidem"),
+    )
+    username = forms.CharField(
+        label=_("Username"),
+        max_length=150,
+        help_text=_("Máximo de 150 caracteres. Letras, dígistos e apenas @/./+/-/_ ."),
+        validators=[username_validator],
+        error_messages={"unique": _("Usuário já existe.")},
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+    )
+
+    class Meta:
+        model = User
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "password1",
+            "password2",
+        )
+
+
 class SigninView(CreateView):
     template_name = "standard/signin.html"
-    form_class = UserCreationForm
-    success_url = reverse_lazy("store")
+    form_class = SigninForm
+    success_url = reverse_lazy("login")
 
     def form_valid(self, form):
         user = form.save()
         if user:
-            Customer.objects.create(user=user, name=user.username, email="")
-            login(self.request, user)
+            Customer.objects.create(user=user, name=user.username, email=user.email)
+            # login(self.request, user)
 
         return super(SigninView, self).form_valid(form)
 
