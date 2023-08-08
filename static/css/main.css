@@ -156,3 +156,19 @@ h4 {
     text-align: center;
     margin-top: auto;
 }
+
+#color-link{
+	color: #fff;
+}
+
+#footer-icon-linkedin{
+	width:100px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#footer-icon{
+	width:30px;
+	display: inline-block;
+	margin-left: 15px;
+}
