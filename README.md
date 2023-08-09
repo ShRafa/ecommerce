@@ -9,11 +9,13 @@ O projeto ainda está em andamento e tem como foco desevolver um monolito com as
 
 > **Em desenvolvimento:**  Embora temos um E-commerce funcional, parte do projeto ainda está em desenvolvimento, pois o desafio é inicar do zero e entregar um site que possa ser utilziado de fato, para negócio.
 
-Com isso, os próximos passos do projeto são:
+> **Com isso, os próximos passos do projeto são:**
 
- • *API de contato com whatsapp:* ao iniciar o site perceberá que o númeor está no rodapé da página, tenho como objetio aplicar a API do whatsapp para direcionar o usuário a conversa com o número ali inserido;
- • *API com com sistemas de pagamento:* até o momento, o software entrega a mensagem de pagamento efetuado com sucesso, porém o backend referente a pagamento é crucial que seja feita com muita atenção e tranquilidade, esta parte é crucial para o objetivo final deste projeto;
- • *Integração a um banco de dados robusto:* um desenvolvedor experiente que por algum motivo baixe este APP perceberá rapidamente que o banco de dados utilizado é o fornecido por padrão pelo DJANGO (db.sqlite3), está na fila do projeto alterar para um banco de dados mais robusto;
+ > *API de contato com whatsapp:* ao iniciar o site perceberá que o númeor está no rodapé da página, tenho como objetio aplicar a API do whatsapp para direcionar o usuário a conversa com o número ali inserido;
+ 
+ > *API com com sistemas de pagamento:* até o momento, o software entrega a mensagem de pagamento efetuado com sucesso, porém o backend referente a pagamento é crucial que seja feita com muita atenção e tranquilidade, esta parte é crucial para o objetivo final deste projeto;
+ 
+ > *Integração a um banco de dados robusto:* um desenvolvedor experiente que por algum motivo baixe este APP perceberá rapidamente que o banco de dados utilizado é o fornecido por padrão pelo DJANGO (db.sqlite3), está na fila do projeto alterar para um banco de dados mais robusto;
 
 
 ## Requisitos do Projeto
