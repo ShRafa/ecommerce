@@ -10,8 +10,6 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
 > **Em desenvolvimento:** Embora tenhamos um E-commerce funcional, parte do projeto ainda está em desenvolvimento, pois o desafio é iniciar do zero e entregar um site que possa ser utilizado de fato para negócios.
 
 > **Com isso, os próximos passos do projeto são:**
-
- > *API de contato com WhatsApp:* Ao acessar o site, você perceberá que o número está no rodapé da página. Meu objetivo é aplicar a API do WhatsApp para direcionar o usuário a uma conversa com o número ali inserido;
  
  > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade, pois é crucial para o objetivo final deste projeto;
  
