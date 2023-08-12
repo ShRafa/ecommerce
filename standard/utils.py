@@ -61,6 +61,15 @@ def cartData(request):
     return {"cartItems": cartItems, "order": order, "items": items}
 
 
+def productDetails(product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        return product
+
+    except Product.DoesNotExist:
+        return None
+
+
 def guestOrder(request, data):
     print("Usuário não cadastrado...")
 

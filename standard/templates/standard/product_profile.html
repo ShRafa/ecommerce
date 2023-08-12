@@ -1,0 +1,29 @@
+{% extends 'standard/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="col-lg-4">
+        <div>
+            <img class="thumbnail" src="{{data.imageURL}}">
+            <h4 style="display: inline-block; float: right"><strong>
+                R${{data.brazilianCurrency}}
+            </strong></h4>
+        </div>
+        <div class="box-element data">
+            <h6><strong>{{data.name}}</strong></h6>
+            <hr>
+            <div class="align-text">
+                <button 
+                    data-product={{data.id}} 
+                    data-action="add" 
+                    class="btn btn-outline-secondary add-btn update-cart mx-2"
+                >
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

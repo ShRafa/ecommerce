@@ -16,7 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.edit import CreateView
 
 from .models import *
-from .utils import cartData, guestOrder
+from .utils import *
 
 
 def store(request):
@@ -118,6 +118,15 @@ def historic(request):
         return render(request, "standard/historic.html", {"orders": orders})
     else:
         return redirect("login")
+
+
+def productProfile(request, product_id):
+    data = productDetails(product_id)
+
+    if data:
+        return render(request, "standard/product_profile.html", {"data": data})
+
+    return redirect("store")
 
 
 username_validator = UnicodeUsernameValidator()
