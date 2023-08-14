@@ -5,6 +5,14 @@
     min-height: 100vh; /* Preencher a altura da viewport */
 }
 
+#fixed-header{
+	position: fixed;
+	top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 1000;
+}
+
 body{
 	background-color: hsl(0, 0%, 98%);
 }
@@ -185,4 +193,47 @@ h4 {
 
 .fixed-footer {
     text-align: center;
+}
+
+
+/* Estilos para o container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para o conteúdo */
+.content {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para a imagem */
+.image {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para as características */
+.characteristics {
+    flex: 2;
+}
+
+.characteristics h1 {
+    font-size: 24px;
+}
+
+.characteristics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.characteristics li {
+    margin-bottom: 10px;
 }

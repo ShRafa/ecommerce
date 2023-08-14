@@ -122,9 +122,12 @@ def historic(request):
 
 def productProfile(request, product_id):
     data = productDetails(product_id)
+    cartKeep = cartData(request)
+    cartItems = cartKeep["cartItems"]
+    context = {"data":data, "cartItems":cartItems}
 
     if data:
-        return render(request, "standard/product_profile.html", {"data": data})
+        return render(request, "standard/product_profile.html", context)
 
     return redirect("store")
 

@@ -4,7 +4,7 @@
 <html>
     <div class="main-content">
         <div>
-            <head>
+            <head id="fixed-header">
                 <title>e-commerce</title>
 
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
@@ -59,7 +59,7 @@
         </div>
         <div class="page-container">
             <body>
-                <nav class="navbar navbar-expand-lg navbar-dark custom-navbar d-flex justify-content-between px-5">
+                <nav class="navbar navbar-expand-lg navbar-dark custom-navbar d-flex justify-content-between px-5" id="fixed-header">
                     <div>
                         <a class="navbar-brand" id="text-specify" href="{% url 'store' %}">Loja Virtual</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,7 +90,7 @@
                 </nav>
 
                 <div class="container">
-                    <br>
+                    <br> <br> <br> <br>
                     {% block content %}
                     
                     {% endblock content %}
