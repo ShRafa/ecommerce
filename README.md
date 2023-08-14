@@ -11,7 +11,7 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
 
 > **Com isso, os próximos passos do projeto são:**
  
- > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade, pois é crucial para o objetivo final deste projeto;
+ > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade;
  
  > *Integração a um banco de dados robusto:* Um desenvolvedor experiente que por algum motivo baixe este aplicativo perceberá rapidamente que o banco de dados utilizado é o fornecido por padrão pelo Django (db.sqlite3). Está na fila do projeto alterar para um banco de dados mais robusto;
 
