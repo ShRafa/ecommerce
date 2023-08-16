@@ -7,6 +7,8 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
 
 > **Frontend:** O foco deste projeto é o backend. Por esse motivo, para o design, foi utilizado o básico de HTML e CSS, com algumas nuances de Bootstrap. (Concluído)
 
+> **Banco de Dados:** O banco escolhido para este projeto foi o PostgreSQL por ser amplamente utilizado no mercado. (Concluído)
+
 > **Em desenvolvimento:** Embora tenhamos um E-commerce funcional, parte do projeto ainda está em desenvolvimento, pois o desafio é iniciar do zero e entregar um site que possa ser utilizado de fato para negócios.
 
 > **Com isso, os próximos passos do projeto são:**
@@ -14,8 +16,6 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
  > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade;
  
  > ~~*Integração a um banco de dados robusto:* O projeto concluiu com sucesso a etapa de integração a um banco de dados mais robusto, substituindo o banco de dados padrão SQLite do Django (db.sqlite3).~~ 
-
-    **Concluído:** Integração feita com o banco de dados PostgreSQL;
  
  > *Hospedar o site:* O GitHub é excelente como plataforma para desenvolvedores poderem reutilizar o código ou servir como portfólio para um programador. No entanto, tenho como objetivo utilizar este aplicativo como portfólio também para pessoas que não são desenvolvedoras, como pessoal de Recursos Humanos. É com este objetivo que pretendo subir este site em alguma hospedagem.
 
