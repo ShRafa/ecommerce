@@ -13,8 +13,8 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
  
  > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade;
  
- > *Integração a um banco de dados robusto:* Um desenvolvedor experiente que por algum motivo baixe este aplicativo perceberá rapidamente que o banco de dados utilizado é o fornecido por padrão pelo Django (db.sqlite3). Está na fila do projeto alterar para um banco de dados mais robusto;
-
+ > *Integração a um banco de dados robusto:* O projeto concluiu com sucesso a etapa de integração a um banco de dados mais robusto, substituindo o banco de dados padrão SQLite do Django (db.sqlite3). Foi escolhido o PostgreSQL como banco de dados para a aplicação;
+ 
  > *Hospedar o site:* O GitHub é excelente como plataforma para desenvolvedores poderem reutilizar o código ou servir como portfólio para um programador. No entanto, tenho como objetivo utilizar este aplicativo como portfólio também para pessoas que não são desenvolvedoras, como pessoal de Recursos Humanos. É com este objetivo que pretendo subir este site em alguma hospedagem.
 
 
