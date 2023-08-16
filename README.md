@@ -17,7 +17,9 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
  
  > ✔ ~~*Integração a um banco de dados robusto:* O projeto concluiu com sucesso a etapa de integração a um banco de dados mais robusto, substituindo o banco de dados padrão SQLite do Django (db.sqlite3).~~
  
- > *Hospedar o site:* O GitHub é excelente como plataforma para desenvolvedores poderem reutilizar o código ou servir como portfólio para um programador. No entanto, tenho como objetivo utilizar este aplicativo como portfólio também para pessoas que não são desenvolvedoras, como pessoal de Recursos Humanos. É com este objetivo que pretendo subir este site em alguma hospedagem.
+ > *Hospedagem:* Meu objetivo é transformar este aplicativo em um portfólio acessível não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. Para alcançar isso, planejo subir o site em um serviço de hospedagem. Permitindo que recrutadores e profissionais de Recursos Humanos também avaliem meu trabalho.
+
+Fique atento para atualizações futuras sobre a hospedagem do site.
 
 
 ## Requisitos do Projeto
