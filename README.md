@@ -19,7 +19,7 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
  
  > *Hospedagem:* Meu objetivo é transformar este aplicativo em um portfólio acessível não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. Para alcançar isso, planejo subir o site em um serviço de hospedagem. Permitindo que recrutadores e profissionais de Recursos Humanos também avaliem meu trabalho.
 
- > *Docker Compose:* Para entregar o sistema de forma mais consistente, pretendo criar om container Docker com todos os ambientes préprogramados.
+ > *Docker Compose:* Para agilizar e entregar o sistema de forma mais consistente, pretendo criar um container Docker com todos os ambientes pré programados.
 
 ## Requisitos do Projeto
 
