@@ -33,7 +33,7 @@ class Product(models.Model):
     def brazilianCurrency(self):
         rounded = round(self.price, 2)
         return str(rounded).replace(".", ",")
-    
+
 
 class Order(models.Model):
     customer = models.ForeignKey(
