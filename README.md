@@ -27,11 +27,27 @@ O projeto está sendo desenvolvido em Django com sistema operacional Linux.
 
 As dependências deste projeto estão listadas em requirements.txt.
 
+O projeto pode ser executado de duas formas:
+1. Via terminal Linux
+2. Via Docker Compose
 
-### Para executar o projeto, siga os passos abaixo:
+## 1. Terminal Linux:
+
+Embora seja um pouco mais complexo, este método concede ao usuário mais acesso, visibilidade e manipulação ao código, permitindo a execução de partes específicas do projeto de forma independente. Também facilita a depuração do código na IDE que estiver sendo utilizada.
+
+### Siga os passos a seguir para este modelo:
 
 Com sua virtualenv, na raiz do projeto, instale as dependências do backend com
 `pip install -r requirements.txt`
 
 Com todos os pacotes instalados, na raiz do projeto, execute:
 - `./manage.py runserver 8000` para subir o backend na porta 8000.
+
+## 2. Docker Compose:
+
+Este método de execução é recomendado para quem pretende verificar o projeto em execução sem analisar mais a fundo o código, uma vez que o Docker já oferece todos os componentes de instalação configurados, eliminando a necessidade de se preocupar com virtualenvs ou portas no projeto.
+
+### Siga os passos a seguir para este modelo:
+
+Efetue a instalação do Docker. O seguinte link pode ser útil: https://docs.docker.com/compose/install/linux/
+Com o Docker Compose instalado, execute o seguinte comando em seu terminal: `docker-compose up --build`
