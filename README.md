@@ -19,7 +19,7 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
  
  > *Hospedagem:* Meu objetivo é transformar este aplicativo em um portfólio acessível não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. Para alcançar isso, planejo subir o site em um serviço de hospedagem. Permitindo que recrutadores e profissionais de Recursos Humanos também avaliem meu trabalho.
 
- > *Docker Compose:* Para agilizar e entregar o sistema de forma mais consistente, pretendo criar um container Docker com todos os ambientes pré programados.
+ > ✔ ~~*Docker Compose:* Para agilizar e entregar o sistema de forma mais consistente, pretendo criar um container Docker que popule o banco de dados com alguns itens e preços fictícios.~~
 
 ## Requisitos do Projeto
 
@@ -28,14 +28,15 @@ O projeto está sendo desenvolvido em Django com sistema operacional Linux.
 As dependências deste projeto estão listadas em requirements.txt.
 
 O projeto pode ser executado de duas formas:
-1. Via terminal Linux
-2. Via Docker Compose
+1. Executar o projeto via Linux
+2. Popular o banco de dados
 
-## 1. Terminal Linux:
+## 1. Executando o Projeto:
 
-Embora seja um pouco mais complexo, este método concede ao usuário mais acesso, visibilidade e manipulação ao código, permitindo a execução de partes específicas do projeto de forma independente. Também facilita a depuração do código na IDE que estiver sendo utilizada.
+### Siga os passos a seguir:
 
-### Siga os passos a seguir para este modelo:
+Abra o terminal Linux e navegue até a pasta onde foi feito o *download* do projeto e ative a virtual env, o nome padrão da máquina virutal deste projeto é *venv*, caso vocẽ troque este nome ou queria executar em outra máquina virtual deverá efetuar a troca do nome no comando que será mostrado abaixo.
+`source venv/bin/activate`
 
 Com sua virtualenv, na raiz do projeto, instale as dependências do backend com
 `pip install -r requirements.txt`
@@ -43,11 +44,12 @@ Com sua virtualenv, na raiz do projeto, instale as dependências do backend com
 Com todos os pacotes instalados, na raiz do projeto, execute:
 - `./manage.py runserver 8000` para subir o backend na porta 8000.
 
-## 2. Docker Compose:
+## 2. Populando o banco de dados:
 
-Este método de execução é recomendado para quem pretende verificar o projeto em execução sem analisar mais a fundo o código, uma vez que o Docker já oferece todos os componentes de instalação configurados, eliminando a necessidade de se preocupar com virtualenvs ou portas no projeto.
+Este método serve para entregar o projeto com itens fictícios inclusos, e com isso, não precisar perder tempo adicionando item apenas para testes.
 
 ### Siga os passos a seguir para este modelo:
 
 Efetue a instalação do Docker. O seguinte link pode ser útil: https://docs.docker.com/compose/install/linux/
 Com o Docker Compose instalado, execute o seguinte comando em seu terminal: `docker-compose up --build`
+ > *Obs: Esta ação irá popular o banco de dados, sendo necessário executar o passo 1*
