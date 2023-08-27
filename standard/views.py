@@ -25,6 +25,7 @@ def store(request):
 
     products = Product.objects.all()
     context = {"products": products, "cartItems": cartItems}
+    print('oi')
     return render(request, "standard/store.html", context)
 
 
