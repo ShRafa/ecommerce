@@ -1,0 +1,11 @@
+{% extends 'standard/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h1>Obrigado pela visita, volte sempre!</h1>
+
+    <div class="ms-auto">
+        <a href="{% url 'store' %}" class="btn btn-success mx-2">Voltar a Loja</a>
+    </div>
+{% endblock %}

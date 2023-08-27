@@ -6,17 +6,25 @@
     <div class="row">
         {% for product in products %}
         <div class="col-lg-4">
-            <img class="thumbnail" src="{{product.imageURL}}">
+            <div>
+                <img class="thumbnail" src="{{product.imageURL}}">
+                <h4 style="display: inline-block; float: right"><strong>
+                    R${{product.brazilianCurrency}}
+                </strong></h4>
+            </div>
             <div class="box-element product">
                 <h6><strong>{{product.name}}</strong></h6>
                 <hr>
-                <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-                    Adicionar Compra
-                </button>
-                <a class="btn btn-outline-success" href="#">Vizualizar</a>
-                <h4 style="display: inline-block; float: right"><strong>
-                    R${{product.price|floatformat:2}}
-                </strong></h4>
+                <div class="align-text">
+                    <button 
+                        data-product={{product.id}} 
+                        data-action="add" 
+                        class="btn btn-outline-secondary add-btn update-cart mx-2"
+                    >
+                        Adicionar ao Carrinho
+                    </button>
+                    <a class="btn btn-outline-success" href="{% url 'product_profile' product.id %}" target="_blank">Visualizar</a>
+                </div>
             </div>
         </div>
         {% endfor %}

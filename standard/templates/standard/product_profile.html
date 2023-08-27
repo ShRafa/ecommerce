@@ -1,0 +1,29 @@
+{% extends 'standard/main.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="content">
+            <div class="image">
+                <img src="{{data.imageURL}}" alt="Produto">
+            </div>
+            <div class="characteristics">
+                <h2>{{data.name}}<h2>
+                <hr>
+                <p>Preço: R${{data.brazilianCurrency}}</p>
+                <hr>
+                <p> {{data.description}} <p>
+                <hr>
+                <button 
+                    data-product={{data.id}} 
+                    data-action="add" 
+                    class="btn btn-outline-success add-btn update-cart mx-2"
+                    >
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -1,9 +1,30 @@
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Preencher a altura da viewport */
+}
+
+#fixed-header{
+	position: fixed;
+	top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 1000;
+}
+
 body{
 	background-color: hsl(0, 0%, 98%);
 }
 
 h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
+}
+
+h4 {
+	margin: 5px;
+	justify-content: center;
+	text-align: center;
 }
 
 .box-element{
@@ -25,6 +46,11 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 0 0 4px 4px;
 }
 
+.align-text{
+	justify-content: center;
+	text-align: center;
+}
+
 .bg-dark{
 	background-color: #4f868c!important;
 }
@@ -35,23 +61,47 @@ h1,h2,h3,h4,h5,h6{
 	margin-left: 15px;
 }
 
+#wallpaper{
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
 #cart-total{
 	display: block;
 	text-align: center;
-	color:#fff;
-	background-color: red;
+	color:#FFF;
+	background-color: #272b47;
 	width: 20px;
 	height: 25px;
-	border-radius: 50%;
+	border-radius: 100%;
 	font-size: 14px;
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .btn{
-	border-radius: 0;
+	border-radius: 5%;
+}
+
+.btn.btn-custom-warning {
+	background-color: #272b47;
+	border-color: #121422;
+	color: #fff;
+  }
+
+.btn.btn-custom-warning:hover {
+	background-color: #636568;
+	border-color: #636568;
+	color: #fff;
+  }
+
+.custom-navbar{
+	background-color: #626797;
 }
 
 .row-image{
@@ -96,4 +146,94 @@ h1,h2,h3,h4,h5,h6{
 
 .hidden{
 	display: none!important;
+}
+
+#text-specify{
+	color: #FFF;
+}
+
+#footer-text-specify{
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.custom-footer {
+    flex-shrink: 0;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+#color-link{
+	color: #fff;
+}
+
+#footer-icon-linkedin{
+	width:100px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#footer-icon{
+	width:30px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.main-content{
+    flex-grow: 1;
+}
+
+.fixed-footer {
+    text-align: center;
+}
+
+
+/* Estilos para o container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para o conteúdo */
+.content {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para a imagem */
+.image {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para as características */
+.characteristics {
+    flex: 2;
+}
+
+.characteristics h1 {
+    font-size: 24px;
+}
+
+.characteristics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.characteristics li {
+    margin-bottom: 10px;
 }

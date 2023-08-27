@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: standard-postgres
+    image: postgres
+    restart: always
+    user: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_NAME: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # django:
+  #   container_name: standard-django
+  #   build: .
+  #   command: >
+  #     bash -c "python manage.py migrate
+  #     && python manage.py populate_db
+  #     && python manage.py runserver 0.0.0.0:8000"
+  #   ports:
+  #     - "8000:8000"
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_HOST: "db"
+  #     POSTGRES_NAME: postgres
+  #     POSTGRES_PORT: 5432
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+
+volumes:
+  db_data:
