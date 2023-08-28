@@ -9,17 +9,19 @@ O projeto ainda está em andamento e tem como foco desenvolver um monólito com 
 
 > **Banco de Dados:** O banco escolhido para este projeto foi o PostgreSQL por ser amplamente utilizado no mercado. (Concluído)
 
-> **Em desenvolvimento:** Embora tenhamos um E-commerce funcional, parte do projeto ainda está em desenvolvimento, pois o desafio é iniciar do zero e entregar um site que possa ser utilizado de fato para negócios.
+> **Hospedagem:** > **Hospedagem:** Este projeto agora está hospedado na AWS (Amazon Web Services), proporcionando acessibilidade não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. No entanto, devido aos custos de manutenção, o site está atualmente desconectado. Se você estiver interessado em visualizá-lo online via AWS, por favor, entre em contato comigo. (Concluído)
+
+> **Em desenvolvimento:** Embora tenhamos um E-commerce funcional, parte do projeto ainda está em desenvolvimento, pois o desafio é iniciar do zero e entregar um site que possa ser utilizado de fato para negócios. 
 
 > **Com isso, os próximos passos do projeto são:**
  
- > *API de sistemas de pagamento:* Até o momento, o software entrega a mensagem de pagamento efetuado com sucesso. No entanto, a parte de backend relacionada ao pagamento é crucial e deve ser feita com muita atenção e tranquilidade;
- 
  > ✔ ~~*Integração a um banco de dados robusto:* O projeto concluiu com sucesso a etapa de integração a um banco de dados mais robusto, substituindo o banco de dados padrão SQLite do Django (db.sqlite3).~~
  
- > *Hospedagem:* Meu objetivo é transformar este aplicativo em um portfólio acessível não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. Para alcançar isso, planejo subir o site em um serviço de hospedagem. Permitindo que recrutadores e profissionais de Recursos Humanos também avaliem meu trabalho.
+ > ✔ ~~*Hospedagem:* Meu objetivo é transformar este aplicativo em um portfólio acessível não apenas para desenvolvedores, mas também para pessoas que não têm conhecimento técnico. Para alcançar isso, planejo subir o site em um serviço de hospedagem. Permitindo que recrutadores e profissionais de Recursos Humanos também avaliem meu trabalho.~~
 
  > ✔ ~~*Docker Compose:* Para agilizar e entregar o sistema de forma mais consistente, pretendo criar um container Docker que popule o banco de dados com alguns itens e preços fictícios.~~
+ 
+ > *Aprimoramentos:* Com os marcos considerados urgentes concluídos, minha jornada continua em busca de melhorias contínuas. Estou aberto a novas ideias, tecnologias e ferramentas que possam aprimorar este projeto. À medida que novas oportunidades e inovações surgirem, pretendo incorporá-las para tornar este sistema ainda mais robusto e eficaz.
 
 ## Requisitos do Projeto
 
